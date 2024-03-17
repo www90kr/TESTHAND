@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .thumbImg{
+            width:80px;
+            margin:20px;
+        }
+        .thumbImg:hover{
+            width:90px;
+        }
+        .title{
+            font-size: 15px;
+            color: black;
+            text-decoration: none;
+        }
+        .title:hover{
+            font-weight: bolder;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="logo">
+           <a href="index.html"> <img src="go.jpg" width="150px"></a>
+        </div>
+        <div id="title"> 
+            <a style="text-decoration-line: none;" href="index.html"> 
+                <h1 style="text-align: center; margin: auto; text-decoration-line: none; color: black;">GOINMOOL SITE </h1>
+            </a>   
+        </div>
+    </div>
+    <div id="sideBarLeft" style="margin:50px;  float:left; width:5%;">
+        <div id="adZone">
+            AD
+
+        </div>
+
+    </div>
+
+    <div class="container" style="margin-top:100px;  float:left; width:60%;">
+       
+        <div class="row" style="padding-left:100px; padding-top: 100px;  float:left; width: 65%;">
+            <table border="0" >
+                <th></th>
+                <th></th>
+                <tr><!-- 첫번째 줄 시작 -->
+                    <td><a class="thumb" href="highKick/highKick1.html"><img src="thumb1.png" class="thumbImg"></a></td>
+                    <td><a class ="title" href="highKick/highKick1.html">거침없이하이킥 고인물 테스트</a></td>
+                </tr><!-- 첫번째 줄 끝 -->
+                <tr><!-- 두번째 줄 시작 -->
+                    <td><a class="thumb" href="mudo/mudo.html"><img src="thumb2.jpg" class="thumbImg"></a></td>
+                    <td><a class ="title" href="mudo/mudo.html">무한도전 고인물 테스트</td>
+                </tr><!-- 두번째 줄 끝 -->
+                <tr><!-- 세번째 줄 시작 -->
+                    <td><a class="thumb" href="mim/mim.html"><img src="thumb3.png" class="thumbImg"></a></td>
+                    <td><a class ="title" href="mim/mim.html">영화 밈 고인물 테스트</td>
+                </tr><!-- 세번째 줄 끝 -->
+                </table>
+                <div style="margin-top: 20px; border:black solid 1px; padding:15px;">
+                    <form id="commentForm">
+                        <label for="username">닉네임:</label>
+                        <input type="text" id="username" required style="width:100px;" />
+                
+                        <label for="comment">댓글:</label>
+                        <input type="text" id="comment" required style="width:200px;"></input>
+                        <button type="submit">제출</button>
+                    </form>
+              
+                    <div id="commentList" style="margin-top: 20px;"></div>
+                </div>
+        </div>
+     
+
+    </div>
+    <div id="sidebarRight" style="margin-top:100px;  float:left; width:15%;">
+        <div id="rankZone" style="padding:50px; float:left; width:95%; height: 800px; background-color: black; border:2px solid gold; color:goldenrod; text-align: center;">
+            <img src="rankGold.png" width="100px" margin:auto;>
+            <table width="95%">
+                <th>순위</th>
+                <th>닉네임</th>
+                <th>날짜</th>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+  
+
+
+
+<script>
+    const commentForm = document.getElementById('commentForm');
+    const commentDiv = document.getElementById('commentDiv');
+// 페이지가 로드될 때 기존 댓글 불러오기
+window.onload = function () {
+  loadComments();
+};
+
+
+// 댓글 작성 폼 제출 시 실행될 함수
+document.getElementById('commentForm').onsubmit = function (e) {
+e.preventDefault();
+
+// 입력된 이름과 댓글 내용 가져오기
+let name = document.getElementById('username').value;
+let comment = document.getElementById('comment').value;
+
+// 댓글 객체 생성
+let newComment = {
+  user: name,
+  review: comment,
+};
+
+// 기존 댓글 배열 가져오기
+let comments = getComments();
+
+// 새로운 댓글 추가
+comments.push(newComment);
+
+// 변경된 댓글 배열 저장
+localStorage.setItem('comments', JSON.stringify(comments));
+
+// 댓글 목록 다시 불러오기
+loadComments();
+
+// 폼 초기화
+document.getElementById('commentForm').reset();
+};
+
+function getComments() {
+  let comments = localStorage.getItem('comments');
+
+  if (comments) {
+    return JSON.parse(comments);
+  } else {
+    return [];
+  }
+}
+
+function loadComments() {
+  let commentList = document.getElementById('commentList');
+  commentList.innerHTML = '';
+
+  let comments = getComments();
+
+  for (let i = 0; i < comments.length; i++) {
+    let comment = comments[i];
+
+    let listItem = document.createElement('li');
+    listItem.innerHTML =
+      '<strong>' + comment.user + ':</strong> ' + comment.review;
+
+    commentList.appendChild(listItem);
+  }
+}
+
+
+
+
+</script>
+
+</body>
+</html>
