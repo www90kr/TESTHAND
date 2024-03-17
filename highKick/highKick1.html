@@ -39,6 +39,26 @@
     flex-direction: column;
 }
 */
+#answerDiv>.answer:active{
+      transform: scale(1.08);
+      box-shadow: 3px 2px 22px 1px rgba(88, 170, 16, 0.24);
+}
+
+.answer{
+    border: black solid 0.5px ;
+    margin: 25px;
+
+}
+
+.answer-image {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    margin: 15px;
+
+}
+
+
 @media screen and (max-width: 768px) {
   .logo {
     width: 50px;
@@ -267,11 +287,17 @@ article{
 				<div class="progress" id="progress-1"></div>
 			</div>
 			<h2></h2>
-            <div class="question-img-div">
-			<img src="qs1_108.jpg" class="question-image">
-            </div>  
-			<p>사진 속 가방은 무슨 가방입니까</p>
-			<input type="text" id="answer-1">
+           <!--   <div class="question-img-div">
+			 <img src="qs1_108.jpg" class="question-image">  이미지없애기 
+            </div>-->  
+			<p> 개성댁이 아닌 사람은</p>
+            <div id="answerDiv">
+                <button class="answer" type="button" data-answer="a">A<img src="qqqs1.png" class="answer-image"></button>
+                <button class="answer" type="button" data-answer="b">B<img src="qqqs2.png" class="answer-image"></button></br>
+                <button class="answer" type="button" data-answer="c">C<img src="qqqs3.png" class="answer-image"></button>
+                <button class="answer" type="button" data-answer="d">D<img src="qqqs4.png" class="answer-image"></button>
+            </div>
+			<p>선택 : <input type="text" id="answer-1" style="width:30px;"> 번</p>   
 			<div class="button-container">
 				<button class="submit-button" onclick="checkAnswer(1)">다음 문제</button>
 			</div>
@@ -439,9 +465,19 @@ article{
 	let currentQuestion = 1;
 	let correctAnswers = 0;
 
+    
+    const answerAButton = document.querySelector('button[data-answer="a"]');
+    const answerBButton = document.querySelector('button[data-answer="b"]');
+    const answerCButton = document.querySelector('button[data-answer="c"]');
+    const answerDButton = document.querySelector('button[data-answer="d"]');
+
+    answerAButton.addEventListener('click', () => document.getElementById(`answer-${currentQuestion}`).value = 1);
+    answerBButton.addEventListener('click', () => document.getElementById(`answer-${currentQuestion}`).value = 2);
+    answerCButton.addEventListener('click', () => document.getElementById(`answer-${currentQuestion}`).value = 3);
+    answerDButton.addEventListener('click', () => document.getElementById(`answer-${currentQuestion}`).value = 4);
 	function checkAnswer(questionNum) {
 		const answer = document.getElementById(`answer-${questionNum}`).value.trim();
-	if (questionNum === 1 && answer.replace(/\s+/g, '') === "도시락가방" || answer.replace(/\s+/g, '') === "도시락") {
+	if (questionNum === 1 && answer.replace(/\s+/g, '') === "3") {
     correctAnswers++;
 } else if (questionNum === 2 && answer.replace(/\s+/g, '') === "영철씨" || answer.replace(/\s+/g, '') === "박해미첫사랑" || answer.replace(/\s+/g, '') === "박해미전남친") {
     correctAnswers++;
