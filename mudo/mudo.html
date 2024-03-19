@@ -415,25 +415,25 @@ article{
 
 	function checkAnswer(questionNum) {
 		const answer = document.getElementById(`answer-${questionNum}`).value.trim();
-	if (questionNum === 1 && answer.toLowerCase() === "정준하엄마" || answer.toLowerCase() === "준하엄마" || answer.toLowerCase() === "준하네엄마") {
+	if (questionNum === 1 && answer.replace(/\s+/g, '') === "정준하엄마" || answer.toLowerCase() === "준하엄마" || answer.toLowerCase() === "준하네엄마") {
     correctAnswers++;
-} else if (questionNum === 2 && answer.toLowerCase() === "홍성빈") {
+} else if (questionNum === 2 && answer.replace(/\s+/g, '') === "홍성빈") {
     correctAnswers++;
-} else if (questionNum === 3 && answer.toLowerCase() === "멤버다시짠다"|| answer.toLowerCase() === "멤버새로짠다") {
+} else if (questionNum === 3 && answer.replace(/\s+/g, '') === "멤버다시짠다"|| answer.toLowerCase() === "멤버새로짠다") {
     correctAnswers++;
-} else if (questionNum === 4 && answer.toLowerCase() === "입닫고빵이나먹어") {
+} else if (questionNum === 4 && answer.replace(/\s+/g, '') === "입닫고빵이나먹어") {
     correctAnswers++;
-} else if (questionNum === 5 && answer.toLowerCase() === "파란색" || answer.toLowerCase() === "파랑색"|| answer.toLowerCase() === "파랑") {
+} else if (questionNum === 5 && answer.replace(/\s+/g, '') === "파란색" || answer.toLowerCase() === "파랑색"|| answer.toLowerCase() === "파랑") {
     correctAnswers++;
-} else if (questionNum === 6 && answer.toLowerCase() === "어데가서무기받노" || answer.toLowerCase() === "어데가서무기받노?") {
+} else if (questionNum === 6 && answer.replace(/\s+/g, '') === "어데가서무기받노" || answer.toLowerCase() === "어데가서무기받노?") {
     correctAnswers++;
-} else if (questionNum === 7 && answer.toLowerCase() === "꿈은없고요그냥놀고싶습니다") {
+} else if (questionNum === 7 && answer.replace(/\s+/g, '') === "꿈은없고요그냥놀고싶습니다" || answer.toLowerCase() === "꿈은없고요.그냥놀고싶습니다") {
     correctAnswers++;
-} else if (questionNum === 8 && answer.toLowerCase() === "양서류는흔들어야먹어요") {
+} else if (questionNum === 8 && answer.replace(/\s+/g, '') === "양서류는흔들어야먹어요") {
     correctAnswers++;
-} else if (questionNum === 9 && answer.toLowerCase() === "김영철") {
+} else if (questionNum === 9 && answer.replace(/\s+/g, '') === "김영철") {
     correctAnswers++;
-} else if (questionNum === 10 && answer.toLowerCase() === "십잡스") {
+} else if (questionNum === 10 && answer.replace(/\s+/g, '') === "십잡스") {
     correctAnswers++;
 }
 
