@@ -588,8 +588,41 @@ function clearAllCookies() {
         answerVal.splice(0);
     });
 
+	function checkAnswer(questionNum) {
+		const answer = document.getElementById(`answer-${questionNum}`).value.trim();
+	if (questionNum === 1 && answer.replace(/\s+/g, '') === "범이아빠" || answer.replace(/\s+/g, '') === "김범아빠" || answer.replace(/\s+/g, '') === "범이네아빠" || answer.replace(/\s+/g, '') === "김범아버지" || answer.replace(/\s+/g, '') === "범이아버지") {
+	    correctAnswers++;
+	} else if (questionNum === 2 && answer.replace(/\s+/g, '') === "미친개화이팅" || answer.replace(/\s+/g, '') === "아싸미친개화이팅" ) {
+	    correctAnswers++;
+	} else if (questionNum === 3 && answer.replace(/\s+/g, '') === "교사" || answer.replace(/\s+/g, '') === "선생님") {
+	    correctAnswers++;
+	} else if (questionNum === 4 && answer.replace(/\s+/g, '') === "0원"|| answer.replace(/\s+/g, '') === "0") {
+	    correctAnswers++;
+	} else if (questionNum === 5 && answer.replace(/\s+/g, '') === "헤라스") {
+	    correctAnswers++;
+	} else if (questionNum === 6 && answer.replace(/\s+/g, '') === "싱가포르" || answer.replace(/\s+/g, '') === "싱가폴") {
+	    correctAnswers++;
+	} else if (questionNum === 7 && answer.replace(/\s+/g, '') === "1423") {
+	    correctAnswers++;
+	} else if (questionNum === 8 && answer.replace(/\s+/g, '') === "정승형") {
+	    correctAnswers++;
+	} else if (questionNum === 9 && answer.replace(/\s+/g, '') === "이형사") {
+	    correctAnswers++;
+	} else if (questionNum === 10 && answer.replace(/\s+/g, '') === "1,5,6" || answer.replace(/\s+/g, '') === "5,6,1" || answer.replace(/\s+/g, '') === "6,5,1" || answer.replace(/\s+/g, '') === "6,1,5" || answer.replace(/\s+/g, '') === "5,1,6") {
+	    correctAnswers++;
+	}
 
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('o p(a){q b=h.i(`b-${a}`).r.t();d(a===1&&b.c(/\\s+/g,\'\')==="범이아빠"||b.c(/\\s+/g,\'\')==="김범아빠"||b.c(/\\s+/g,\'\')==="범이네아빠"||b.c(/\\s+/g,\'\')==="김범아버지"||b.c(/\\s+/g,\'\')==="범이아버지"){e++}f d(a===2&&b.c(/\\s+/g,\'\')==="미친개화이팅"||b.c(/\\s+/g,\'\')==="아싸미친개화이팅"){e++}f d(a===3&&b.c(/\\s+/g,\'\')==="교사"||b.c(/\\s+/g,\'\')==="선생님"){e++}f d(a===4&&b.c(/\\s+/g,\'\')==="0원"||b.c(/\\s+/g,\'\')==="0"){e++}f d(a===5&&b.c(/\\s+/g,\'\')==="헤라스"){e++}f d(a===6&&b.c(/\\s+/g,\'\')==="싱가포르"||b.c(/\\s+/g,\'\')==="싱가폴"){e++}f d(a===7&&b.c(/\\s+/g,\'\')==="u"){e++}f d(a===8&&b.c(/\\s+/g,\'\')==="정승형"){e++}f d(a===9&&b.c(/\\s+/g,\'\')==="이형사"){e++}f d(a===v&&b.c(/\\s+/g,\'\')==="1,5,6"||b.c(/\\s+/g,\'\')==="5,6,1"||b.c(/\\s+/g,\'\')==="6,5,1"||b.c(/\\s+/g,\'\')==="6,1,5"||b.c(/\\s+/g,\'\')==="5,1,6"){e++}d(a<k){h.i(`l-m-${a}`).j.n="w";h.i(`l-m-${a+1}`).j.n="x";h.i(`y-${a+1}`).j.z=`${(a+1)*A/k}%`;B++}f{C()}}',39,39,'|||||||||||answer|replace|if|correctAnswers|else||document|getElementById|style|numQuestions|question|page|display|function|checkAnswer|const|value||trim|1423|10|none|block|progress|width|100|currentQuestion|showResult'.split('|'),0,{}))
+    
+    
+		if (questionNum < numQuestions) {
+			document.getElementById(`question-page-${questionNum}`).style.display = "none";
+			document.getElementById(`question-page-${questionNum + 1}`).style.display = "block";
+			document.getElementById(`progress-${questionNum + 1}`).style.width = `${(questionNum + 1) * 100 / numQuestions}%`;
+			currentQuestion++;
+		} else {
+			showResult();
+		}
+	}
 
 function showResult() {
     document.getElementById("question-page-10").style.display = "none";
