@@ -461,8 +461,40 @@ article{
 	let currentQuestion = 1;
 	let correctAnswers = 0;
 
-eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('n o(a){p 0=f.h(`0-${a}`).q.r();c(a===1&&0.b(" ","")==="어이가없네"){d++}e c(a===2&&0.b(/\\s+/g,\'\')==="묻고더블로가"){d++}e c(a===3&&0.b(/\\s+/g,\'\')==="아버지뭐하시노"||0.b(/\\s+/g,\'\')==="느그아버지뭐하시노"){d++}e c(a===4&&0.b(/\\s+/g,\'\')==="느그서장남천동살제"||0.b(/\\s+/g,\'\')==="느그서장남천동살제?"){d++}e c(a===5&&0.b(/\\s+/g,\'\')==="살려는드릴게"){d++}e c(a===6&&0.b(/\\s+/g,\'\')==="이거방탄유리야"||0.b(/\\s+/g,\'\')==="이거방탄유리야이개새끼야"||0.b(/\\s+/g,\'\')==="방탄유리야"){d++}e c(a===7&&0.b(/\\s+/g,\'\')==="나싱글이야"){d++}e c(a===8&&0.b(/\\s+/g,\'\')==="드루와"){d++}e c(a===9&&0.b(/\\s+/g,\'\')==="내가왕이될상인가"){d++}e c(a===t&&(0.b(/\\s+/g,\'\')==="내성질까먹었나보네"||0.b(/\\s+/g,\'\')==="내성격까먹었나보네")){d++}c(a<j){f.h(`k-l-${a}`).i.m="u";f.h(`k-l-${a+1}`).i.m="v";f.h(`w-${a+1}`).i.x=`${(a+1)*y/j}%`;z++}e{A()}}',37,37,'answer|||||||||||replace|if|correctAnswers|else|document||getElementById|style|numQuestions|question|page|display|function|checkAnswer|const|value|trim||10|none|block|progress|width|100|currentQuestion|showResult'.split('|'),0,{}))
-
+	function checkAnswer(questionNum) {
+		const answer = document.getElementById(`answer-${questionNum}`).value.trim();
+	if (questionNum === 1 && answer.replace(" ","") === "어이가없네") {
+    correctAnswers++;
+} else if (questionNum === 2 && answer.replace(/\s+/g, '') === "묻고더블로가") {
+    correctAnswers++;
+} else if (questionNum === 3 && answer.replace(/\s+/g, '') === "아버지뭐하시노"|| answer.replace(/\s+/g, '') === "느그아버지뭐하시노") {
+    correctAnswers++;
+} else if (questionNum === 4 && answer.replace(/\s+/g, '') === "느그서장남천동살제"|| answer.replace(/\s+/g, '') === "느그서장남천동살제?") {
+    correctAnswers++;
+} else if (questionNum === 5 && answer.replace(/\s+/g, '') === "살려는드릴게") {
+    correctAnswers++;
+} else if (questionNum === 6 && answer.replace(/\s+/g, '') === "이거방탄유리야" || answer.replace(/\s+/g, '') === "이거방탄유리야이개새끼야" || answer.replace(/\s+/g, '') === "방탄유리야") {
+    correctAnswers++;
+} else if (questionNum === 7 && answer.replace(/\s+/g, '') === "나싱글이야") {
+    correctAnswers++;
+} else if (questionNum === 8 && answer.replace(/\s+/g, '') === "드루와") {
+    correctAnswers++;
+} else if (questionNum === 9 && answer.replace(/\s+/g, '') === "내가왕이될상인가") {
+    correctAnswers++;
+} else if (questionNum === 10 && (answer.replace(/\s+/g, '') === "내성질까먹었나보네" || answer.replace(/\s+/g, '') === "내성격까먹었나보네")) {
+    correctAnswers++;
+}
+    
+    
+		if (questionNum < numQuestions) {
+			document.getElementById(`question-page-${questionNum}`).style.display = "none";
+			document.getElementById(`question-page-${questionNum + 1}`).style.display = "block";
+			document.getElementById(`progress-${questionNum + 1}`).style.width = `${(questionNum + 1) * 100 / numQuestions}%`;
+			currentQuestion++;
+		} else {
+			showResult();
+		}
+	}
 let answer1 = "어이가 없네";
 let answer2 = "묻고 더블로 가";
 let answer3 = "느그 아버지 뭐하시노"
