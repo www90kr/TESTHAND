@@ -2,8 +2,8 @@
 <html lang="ko">
 <head>
 
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5522499110435321"
-     crossorigin="anonymous"></script>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5522499110435321" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 
@@ -39,6 +39,25 @@
     flex-direction: column;
 }
 */
+
+#answerDiv>.answer:active{
+      transform: scale(1.08);
+      box-shadow: 3px 2px 22px 1px rgba(88, 170, 16, 0.24);
+}
+
+.answer{
+    border: black solid 0.5px ;
+    margin: 25px;
+
+}
+
+.answer-image {
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+    margin: 5px;
+
+}
 @media screen and (max-width: 768px) {
   .logo {
     width: 50px;
@@ -140,10 +159,9 @@ article{
 		}
 
 		.question-image {
-    width: 500px;
-    height: 800px;
+    width: auto;
+    height: 500px;
     max-width: 100%;
-    height: auto;
     margin: 0 auto;
 }
         
@@ -183,6 +201,23 @@ article{
 		.submit-button:hover {
 			background-color: #fffaa6;
 		}
+
+        #delete {
+			padding: 10px 20px;
+			border-radius: 5px;
+			background-color: #7a7a69;
+			color: #424242;
+			border: none;
+			font-size: 16px;
+			cursor: pointer;
+			transition: 0.3s ease;
+            
+		}
+
+		#delete {
+			background-color: #fffaa6;
+		}
+
         
         
            
@@ -287,7 +322,7 @@ article{
 				<div class="progress" id="progress-3"></div>
 			</div>
 			<h2></h2>
-			<img src="h2q33.png" class="question-image">
+			<img src="h2q3.png" class="question-image">
 			<p>사진 속 남자의 직업은</p>
 			<input type="text" id="answer-3">
 			<div class="button-container">
@@ -340,8 +375,8 @@ article{
 			</div>
 			<h2></h2>
 			<img src="h2q7.png" class="question-image">
-			<p>사진속 문희를 시간순서에 따라 나열하세요</p>
-			<input type="text" id="answer-7">
+			<p>시간순서에 따라 "범"을 나열하세요</p>
+			<input type="text" id="answer-7" placeholder="숫자만 입력하세요">
 			<div class="button-container">
 				<button class="submit-button" onclick="checkAnswer(7)">다음 문제</button>
 			</div>
@@ -366,7 +401,7 @@ article{
 			</div>
 			<h2></h2>
 			<img src="h2q9.png" class="question-image">
-			<p>민용의 통화 상대는</p>
+			<p>사진 속 민용의 통화 상대는</p>
 			<input type="text" id="answer-9">
 			<div class="button-container">
 				<button class="submit-button" onclick="checkAnswer(9)">다음 문제</button>
@@ -378,11 +413,20 @@ article{
 				<div class="progress" id="progress-10"></div>
 			</div>
 			<h2></h2>
-			<img src="h2q10.png" class="question-image">
-			<p>윤호가 알바로 번 금액은</p>
-			<input type="text" id="answer-10">
+			<!--<img src="h2q10.png" class="question-image">-->
+			<p>꿈VS현실  ⭐현실 순재를 모두 고르세요</p>
+		    <div id="answerDiv">
+                <button class="answer" type="button" data-answer="a">A<img src="s101.png" class="answer-image"></button>
+                <button class="answer" type="button" data-answer="b">B<img src="s102.png" class="answer-image"></button>
+                <button class="answer" type="button" data-answer="c">C<img src="s103.png" class="answer-image"></button></br>
+                <button class="answer" type="button" data-answer="d">D<img src="s104.png" class="answer-image"></button>
+                <button class="answer" type="button" data-answer="e">D<img src="s105.png" class="answer-image"></button>
+                <button class="answer" type="button" data-answer="f">D<img src="s106.png" class="answer-image"></button>
+            </div>
+			<p>선택 : <input type="text" id="answer-10" style="width:100px"> 번</p> 
 			<div class="button-container">
-				<button class="submit-button" onclick="checkAnswer(10)">제출하기</button>
+				<button id="delete" style="display:inline">지우기</button> 
+                <button class="submit-button" onclick="checkAnswer(10)">제출하기</button>
 			</div>
 		</div>
          <article class="result-image">    
@@ -395,11 +439,15 @@ article{
     margin: 0 auto;">
          <h1 id="result-text"></h1>
                 
-           <article class="result">       
+            <article class="result">       
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_inline_share_toolbox_ougq"></div>
-                
-                     <button type="button" class="btn btn-info mt-3" onclick="location.href='highKick2.html'" style="font-size:large; font-weight: bold; color: white; background-color: rgb(10, 32, 46); border-color: rgb(10, 32, 46); width: 350px; height: 50px; margin: 0 auto;">다시 해보기</button>
+                <div id="rankDiv">
+                    <p> 닉네임을 입력해주세요 </p>
+                <input type="text" id="rankNickname">
+                <button id="rankButton">⭐⭐⭐RANK 등록⭐⭐⭐</button>
+                </div>
+                <button type="button" class="btn btn-info mt-3" onclick="location.href='highKick2.html'" style="font-size:large; font-weight: bold; color: white; background-color: rgb(10, 32, 46); border-color: rgb(10, 32, 46); width: 350px; height: 50px; margin: 0 auto;">다시 해보기</button>
                 <button type="button" class="btn btn-info mt-3" onclick="location.href='/'" style="font-size:large; font-weight: bold; color: white; background-color: rgb(10, 32, 46); border-color: rgb(10, 32, 46); width: 350px; height: 50px; margin: 0 auto;">다른 테스트 해보기</button>
         
             </article>
@@ -413,6 +461,105 @@ article{
 	const numQuestions = 10;
 	let currentQuestion = 1;
 	let correctAnswers = 0;
+
+ $('#rankButton').click(function(){
+    const c = '거침킥  | ';
+    const cname = c + $("#rankNickname").val();
+    const cvalue = $("#result-text").text();
+    const exdays = 3;
+    setCookie(cname, cvalue, exdays);
+    $("#rankDiv").hide();
+
+    console.log(document.cookie);
+    alert("등록되었습니다!");
+});
+
+
+function setCookie(cname, cvalue, exdays) {
+ const d = new Date();
+ d.setTime(d.getTime() + (exdays*24*60*60*1000));
+ let expires = "expires="+ d.toUTCString();
+ const domain = document.domain;
+ document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;" + "domain=" + domain + ";";
+}
+
+function clearAllCookies() {
+  var doc = document,
+      domain = doc.domain,
+      path = '/',
+      cookies = doc.cookie.split(';'),
+      now = +(new Date);
+  for (var i = cookies.length - 1; i >= 0; i--) {
+    doc.cookie = cookies[i].split('=')[0] + '=; expires=' + now + '; domain=' + domain + '; path=' + path;
+  }
+}
+
+
+
+
+	
+
+    const answerAButton = document.querySelector('button[data-answer="a"]');
+    const answerBButton = document.querySelector('button[data-answer="b"]');
+    const answerCButton = document.querySelector('button[data-answer="c"]');
+    const answerDButton = document.querySelector('button[data-answer="d"]');
+    const answerEButton = document.querySelector('button[data-answer="e"]');
+    const answerFButton = document.querySelector('button[data-answer="f"]');
+    const deleteButton = document.querySelector('#delete');
+    const answerVal = [];
+    answerAButton.addEventListener('click', function(){
+        if(answerVal.includes(1)){
+
+        }else{
+            answerVal.push(1);
+        }
+        document.getElementById(`answer-${currentQuestion}`).value = answerVal;
+    });
+    answerBButton.addEventListener('click', function(){
+        if(answerVal.includes(2)){
+
+        }else{
+            answerVal.push(2);
+        }
+        document.getElementById(`answer-${currentQuestion}`).value = answerVal;
+    });
+    answerCButton.addEventListener('click', function(){
+        if(answerVal.includes(3)){
+
+        }else{
+            answerVal.push(3);
+        }
+        document.getElementById(`answer-${currentQuestion}`).value = answerVal;
+    });
+    answerDButton.addEventListener('click', function(){
+        if(answerVal.includes(4)){
+
+        }else{
+            answerVal.push(4);
+        }
+        document.getElementById(`answer-${currentQuestion}`).value = answerVal;
+    });
+    answerEButton.addEventListener('click', function(){
+        if(answerVal.includes(5)){
+
+        }else{
+            answerVal.push(5);
+        }
+        document.getElementById(`answer-${currentQuestion}`).value = answerVal;
+    });
+    answerFButton.addEventListener('click', function(){
+        if(answerVal.includes(6)){
+
+        }else{
+            answerVal.push(6);
+        }
+        document.getElementById(`answer-${currentQuestion}`).value = answerVal;
+    });
+    deleteButton.addEventListener('click', function(){
+        document.getElementById(`answer-${currentQuestion}`).value =''
+        answerVal.splice(0);
+    });
+
 
 	function checkAnswer(questionNum) {
 		const answer = document.getElementById(`answer-${questionNum}`).value.trim();
@@ -428,13 +575,13 @@ article{
     correctAnswers++;
 } else if (questionNum === 6 && answer.replace(/\s+/g, '') === "싱가포르" || answer.replace(/\s+/g, '') === "싱가폴") {
     correctAnswers++;
-} else if (questionNum === 7 && answer.replace(/\s+/g, '') === "1243") {
+} else if (questionNum === 7 && answer.replace(/\s+/g, '') === "1423") {
     correctAnswers++;
 } else if (questionNum === 8 && answer.replace(/\s+/g, '') === "정승형") {
     correctAnswers++;
 } else if (questionNum === 9 && answer.replace(/\s+/g, '') === "이형사") {
     correctAnswers++;
-} else if (questionNum === 10 && answer.replace(/\s+/g, '') === "80만원" || answer.replace(/\s+/g, '') === "800000원" || answer.replace(/\s+/g, '') === "800000" || answer.replace(/\s+/g, '') === "80만") {
+} else if (questionNum === 10 && answer.replace(/\s+/g, '') === "1,5,6" || answer.replace(/\s+/g, '') === "5,6,1" || answer.replace(/\s+/g, '') === "6,5,1" || answer.replace(/\s+/g, '') === "6,1,5" || answer.replace(/\s+/g, '') === "5,1,6") {
     correctAnswers++;
 }
 
@@ -547,11 +694,6 @@ function restartTest() {
 }
 
 </script>
-        
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6076fc88e5b8b134"></script>
-
-    </article>
     </body>
     </body>
     </body>
