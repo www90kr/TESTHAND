@@ -106,6 +106,7 @@
 // 페이지가 로드될 때 기존 댓글 불러오기
 window.onload = function () {
   loadComments();
+  loadRank();
 };
 
 
@@ -163,6 +164,44 @@ function loadComments() {
       '<strong>' + comment.user + ':</strong> ' + comment.review;
 
     commentList.appendChild(listItem);
+  }
+}
+function loadRank(){
+    let rankList = document.getElementById('rankDiv');
+    rankList.innerHTML ='';
+    
+    ranks = document.cookie;
+    console.log(ranks);
+    ARRcookies=document.cookie.split(";");
+    console.log(ARRcookies);
+
+    
+    for(let i=0; i<ARRcookies.length; i++){
+        let rank = ARRcookies[i];
+        let rankId = ARRcookies[i].split('=')[0];
+        let score = ARRcookies[i].split('=')[1];
+        let listItem1 = document.createElement('tr');
+        let listItem2 = document.createElement('td');
+        let listItem3 = document.createElement('td');
+        listItem2.innerHTML = '<strong>' + rankId + '</strong> ';
+        listItem3.innerHTML = score;
+        rankList.appendChild(listItem1);
+        rankList.appendChild(listItem2);
+        rankList.appendChild(listItem3);
+        listItem2.style.textAlign = "left";
+        listItem2.style.width ="150px";
+        listItem3.style.textAlign = "right";
+    }
+}
+
+function clearAllCookies() {
+  var doc = document,
+      domain = doc.domain,
+      path = '/',
+      cookies = doc.cookie.split(';'),
+      now = +(new Date);
+  for (var i = cookies.length - 1; i >= 0; i--) {
+    doc.cookie = cookies[i].split('=')[0] + '=; expires= Sat, 01 Jan 1972 00:00:00 GMT'; domain=' + domain + '; path=' + path';
   }
 }
 
