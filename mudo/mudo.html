@@ -428,42 +428,7 @@ article{
 	let currentQuestion = 1;
 	let correctAnswers = 0;
 
-	function checkAnswer(questionNum) {
-		const answer = document.getElementById(`answer-${questionNum}`).value.trim();
-	if (questionNum === 1 && answer.replace(/\s+/g, '') === "정준하엄마" || answer.toLowerCase() === "준하엄마" || answer.toLowerCase() === "준하네엄마") {
-    correctAnswers++;
-} else if (questionNum === 2 && answer.replace(/\s+/g, '') === "홍성빈") {
-    correctAnswers++;
-} else if (questionNum === 3 && answer.replace(/\s+/g, '') === "멤버다시짠다"|| answer.toLowerCase() === "멤버새로짠다") {
-    correctAnswers++;
-} else if (questionNum === 4 && answer.replace(/\s+/g, '') === "입닫고빵이나먹어") {
-    correctAnswers++;
-} else if (questionNum === 5 && answer.replace(/\s+/g, '') === "파란색" || answer.toLowerCase() === "파랑색"|| answer.toLowerCase() === "파랑") {
-    correctAnswers++;
-} else if (questionNum === 6 && answer.replace(/\s+/g, '') === "어데가서무기받노" || answer.toLowerCase() === "어데가서무기받노?") {
-    correctAnswers++;
-} else if (questionNum === 7 && answer.replace(/\s+/g, '') === "꿈은없고요그냥놀고싶습니다" || answer.toLowerCase() === "꿈은없고요.그냥놀고싶습니다") {
-    correctAnswers++;
-} else if (questionNum === 8 && answer.replace(/\s+/g, '') === "양서류는흔들어야먹어요") {
-    correctAnswers++;
-} else if (questionNum === 9 && answer.replace(/\s+/g, '') === "김영철") {
-    correctAnswers++;
-} else if (questionNum === 10 && answer.replace(/\s+/g, '') === "십잡스") {
-    correctAnswers++;
-}
-
-    
-    
-		if (questionNum < numQuestions) {
-			document.getElementById(`question-page-${questionNum}`).style.display = "none";
-			document.getElementById(`question-page-${questionNum + 1}`).style.display = "block";
-			document.getElementById(`progress-${questionNum + 1}`).style.width = `${(questionNum + 1) * 100 / numQuestions}%`;
-			currentQuestion++;
-		} else {
-			showResult();
-		}
-	}
-
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('o p(a){q 0=h.i(`0-${a}`).r.t();b(a===1&&0.c(/\\s+/g,\'\')==="정준하엄마"||0.f()==="준하엄마"||0.f()==="준하네엄마"){d++}e b(a===2&&0.c(/\\s+/g,\'\')==="홍성빈"){d++}e b(a===3&&0.c(/\\s+/g,\'\')==="멤버다시짠다"||0.f()==="멤버새로짠다"){d++}e b(a===4&&0.c(/\\s+/g,\'\')==="입닫고빵이나먹어"){d++}e b(a===5&&0.c(/\\s+/g,\'\')==="파란색"||0.f()==="파랑색"||0.f()==="파랑"){d++}e b(a===6&&0.c(/\\s+/g,\'\')==="어데가서무기받노"||0.f()==="어데가서무기받노?"){d++}e b(a===7&&0.c(/\\s+/g,\'\')==="꿈은없고요그냥놀고싶습니다"||0.f()==="꿈은없고요.그냥놀고싶습니다"){d++}e b(a===8&&0.c(/\\s+/g,\'\')==="양서류는흔들어야먹어요"){d++}e b(a===9&&0.c(/\\s+/g,\'\')==="김영철"){d++}e b(a===u&&0.c(/\\s+/g,\'\')==="십잡스"){d++}b(a<k){h.i(`l-m-${a}`).j.n="v";h.i(`l-m-${a+1}`).j.n="w";h.i(`x-${a+1}`).j.y=`${(a+1)*z/k}%`;A++}e{B()}}',38,38,'answer|||||||||||if|replace|correctAnswers|else|toLowerCase||document|getElementById|style|numQuestions|question|page|display|function|checkAnswer|const|value||trim|10|none|block|progress|width|100|currentQuestion|showResult'.split('|'),0,{}))
 function showResult() {
     document.getElementById("question-page-10").style.display = "none";
     document.getElementById("result-page").style.display = "block";
