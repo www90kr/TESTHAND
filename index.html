@@ -179,15 +179,15 @@ function loadRank(){
         ARRcookies.splice(i, 1);
         };
     }
-    for(let i=0, i <ARRcookies.length; i++){
-    if(ARRcookies[i]=== valueToRemove2){
-         ARRcookies.splice(i, 1);
+    for(let j=0, j <ARRcookies.length; j++){
+    if(ARRcookies[j]=== valueToRemove2){
+         ARRcookies.splice(j, 1);
         };
     }
-    for(let i=0; i<ARRcookies.length; i++){
-        let rank = ARRcookies[i];
-        let rankId = ARRcookies[i].split('=')[0];
-        let score = ARRcookies[i].split('=')[1];
+    for(let k=0; k<ARRcookies.length; k++){
+        let rank = ARRcookies[k];
+        let rankId = ARRcookies[k].split('=')[0];
+        let score = ARRcookies[k].split('=')[1];
         let listItem1 = document.createElement('tr');
         let listItem2 = document.createElement('td');
         let listItem3 = document.createElement('td');
