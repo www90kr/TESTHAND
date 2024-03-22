@@ -427,18 +427,24 @@ article{
 
 
 <script language=JavaScript>
-        function processKey(){
-            if((event.ctrlKey == true && (event.keyCode == 78 || event.keyCode == 82)) || (event.keyCode >= 112 && event.keyCode <= 123) || event.keyCode == 8) { event.keyCode = 0; 
-                event.cancelBubble = true;
-                event.returnValue = false; }
-            } 
-         document.onkeydown = processKey;
-         
-        function click(){
-             if ((event.button==2)||(event.button==2)){
-                 alert('오른쪽 마우스 금지입니다.');}}
-         document.onmousedown=click;
-</script>	
+$(document).ready(function(){
+        $(document).bind("keydown",function(e){
+            if ( e.keyCode == 123 || e.keyCode == 73 ) {    // F12키, Ctrl+Shift+i
+                e.preventDefault();
+                e.returnValue = false;
+            }
+        });
+    });         
+            
+    document.onmousedown=rightClickCheck; 
+    alertStr="우클릭은 사용할 수 없습니다."; 
+    function rightClickCheck(event){ 
+        if (event.button==2) { 
+            alert(alertStr); 
+            return false; 
+        } 
+    }
+</script>
   
 
 <script>
