@@ -179,17 +179,10 @@ function loadRank(){
     rankList.innerHTML ='';
     
     ranks = document.cookie;
-    console.log(ranks);
     ARRcookies=document.cookie.split(";");
-    console.log(ARRcookies);
 
-    const valueToRemove = '_ga=GA1.1.2127838262.1710666976';
-    const valueToRemove2 = '_ga_9SLWL71F13=GS1.1.1710930925.14.1.1710931536.60.0.1686022881';
     for(let i = 0; i < ARRcookies.length; i++) {
-    if (ARRcookies[i] === valueToRemove) {
-        ARRcookies.splice(i, 1);
-        };
-    if(ARRcookies[i].includes("_ga_9SLWL71F13")) {
+    if(ARRcookies[i].includes("_ga")) {
          ARRcookies.splice(i, 1);
         };
             console.log(ARRcookies);
